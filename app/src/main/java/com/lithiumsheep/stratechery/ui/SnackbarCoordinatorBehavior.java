@@ -1,4 +1,4 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.ui;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;

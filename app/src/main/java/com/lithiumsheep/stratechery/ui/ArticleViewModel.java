@@ -1,9 +1,10 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.ui;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
+import com.lithiumsheep.stratechery.models.Story;
 import com.prof.rssparser.Article;
 import com.prof.rssparser.Parser;
 

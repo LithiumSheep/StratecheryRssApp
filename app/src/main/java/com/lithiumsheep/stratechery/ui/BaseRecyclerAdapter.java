@@ -1,4 +1,4 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.ui;
 
 import android.support.v7.widget.RecyclerView;
 

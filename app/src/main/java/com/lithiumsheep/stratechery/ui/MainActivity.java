@@ -1,7 +1,6 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.ui;
 
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,15 +11,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.prof.rssparser.Article;
-import com.prof.rssparser.Parser;
+import com.lithiumsheep.stratechery.R;
+import com.lithiumsheep.stratechery.models.Story;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 

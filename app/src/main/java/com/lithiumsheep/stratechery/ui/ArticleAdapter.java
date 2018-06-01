@@ -1,4 +1,4 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.ui;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lithiumsheep.stratechery.R;
+import com.lithiumsheep.stratechery.models.Story;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.prof.rssparser.Article;
+import com.lithiumsheep.stratechery.R;
+import com.lithiumsheep.stratechery.models.Story;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -52,7 +53,7 @@ public class ArticleActivity extends AppCompatActivity {
         }
 
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(story.title);
+            getSupportActionBar().setTitle(story.getTitle());
             getSupportActionBar().setSubtitle("date/time");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }

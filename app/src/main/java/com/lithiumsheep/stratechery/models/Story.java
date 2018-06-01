@@ -1,4 +1,4 @@
-package com.lithiumsheep.stratechery;
+package com.lithiumsheep.stratechery.models;
 
 import com.prof.rssparser.Article;
 

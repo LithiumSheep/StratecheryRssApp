@@ -16,6 +16,8 @@ import android.view.MenuItem;
 
 import com.lithiumsheep.stratechery.R;
 import com.lithiumsheep.stratechery.models.Story;
+import com.lithiumsheep.stratechery.utils.DrawerHelper;
+import com.mikepenz.materialdrawer.Drawer;
 
 import java.util.List;
 
@@ -34,13 +36,17 @@ public class MainActivity extends AppCompatActivity {
     ArticleViewModel viewModel;
     ArticleAdapter adapter;
 
-    boolean loading;
+    boolean paging;
+
+    Drawer drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        drawer = DrawerHelper.attach(this);
 
         final LinearLayoutManager llm = new LinearLayoutManager(this);
         recycler.setLayoutManager(llm);
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     if (aBoolean) {
                         snackbar.show();
                     } else {
-                        loading = false;
+                        paging = false;
                     }
                 }
             }
@@ -93,14 +99,14 @@ public class MainActivity extends AppCompatActivity {
         recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (!loading) {
+                if (!paging) {
                     int visibleItemCount = llm.getChildCount();
                     int totalItemCount = llm.getItemCount();
                     int pastVisibleItems = llm.findFirstVisibleItemPosition();
 
                     if ((visibleItemCount + pastVisibleItems) >= totalItemCount
                             && pastVisibleItems >= 0) {
-                        loading = true;
+                        paging = true;
                         viewModel.nextPage();
                     }
                 }
@@ -125,6 +131,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen()) {
+            drawer.closeDrawer();
+        } else {
+            moveTaskToBack(true);
         }
     }
 }

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Stratechery</string>
+
+    <string name="scheme">https</string>
+    <string name="host">stratechery.com</string>
 </resources>

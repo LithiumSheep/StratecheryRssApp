@@ -14,7 +14,6 @@ public class SnackbarCoordinatorBehavior extends CoordinatorLayout.Behavior<Floa
 
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, FloatingActionButton child, View dependency) {
-
         return dependency instanceof Snackbar.SnackbarLayout;
     }
 

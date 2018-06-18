@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class SearchQuery {
 
-    String query;
-    int hitsPerPage = 5;
+    private String query;
+    private int hitsPerPage = 5;
 
     public SearchQuery() {
 

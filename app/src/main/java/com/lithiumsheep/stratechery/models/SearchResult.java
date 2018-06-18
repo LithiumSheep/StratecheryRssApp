@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SearchResult {
 
-    List<SearchHit> hits;
+    private List<SearchHit> hits;
 
     public List<SearchHit> getHits() {
         return hits;

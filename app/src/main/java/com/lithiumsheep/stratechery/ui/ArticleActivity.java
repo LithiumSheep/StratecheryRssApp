@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.lithiumsheep.stratechery.R;
 import com.lithiumsheep.stratechery.models.Story;
+import com.lithiumsheep.stratechery.utils.PicassoImageGetter;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -67,9 +68,11 @@ public class ArticleActivity extends AppCompatActivity {
             title.setText(story.getTitle());
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                content.setText(Html.fromHtml(story.getContent(), Html.FROM_HTML_MODE_COMPACT));
+                content.setText(Html.fromHtml(story.getContent(), Html.FROM_HTML_MODE_LEGACY,
+                        new PicassoImageGetter(content), null));
             } else {
-                content.setText(Html.fromHtml(story.getContent()));
+                content.setText(Html.fromHtml(story.getContent(),
+                        new PicassoImageGetter(content), null));
             }
         }
     }

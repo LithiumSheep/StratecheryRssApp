@@ -7,6 +7,9 @@ import android.support.design.widget.Snackbar;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * Used as a layout flag as app:layout_behavior="class-name" where scrolling behavior applies
+ */
 public class SnackbarCoordinatorBehavior extends CoordinatorLayout.Behavior<FloatingActionButton> {
 
     public SnackbarCoordinatorBehavior(Context context, AttributeSet attrs) {

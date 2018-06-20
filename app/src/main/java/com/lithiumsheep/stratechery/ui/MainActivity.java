@@ -7,27 +7,27 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.lithiumsheep.stratechery.R;
 import com.lithiumsheep.stratechery.models.Story;
-import com.lithiumsheep.stratechery.utils.DrawerHelper;
-import com.mikepenz.materialdrawer.Drawer;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MaterialDrawerActivity {
 
     @BindView(R.id.coordinator)
     CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
     @BindView(R.id.recycler)
@@ -38,15 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
     boolean paging;
 
-    Drawer drawer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        drawer = DrawerHelper.attach(this);
+        toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(toolbar);
+        super.attachDrawer(toolbar);
 
         final LinearLayoutManager llm = new LinearLayoutManager(this);
         recycler.setLayoutManager(llm);
@@ -135,11 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen()) {
-            drawer.closeDrawer();
-        } else {
-            moveTaskToBack(true);
-        }
+    protected boolean shouldMoveTaskToBackOnBackPressed() {
+        return true;
     }
 }

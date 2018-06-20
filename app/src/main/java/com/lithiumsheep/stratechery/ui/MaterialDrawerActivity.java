@@ -17,8 +17,11 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
-public abstract class MaterialDrawerActivity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener {
+public abstract class MaterialDrawerActivity extends AppCompatActivity implements
+        Drawer.OnDrawerItemClickListener,
+        AccountHeader.OnAccountHeaderProfileImageListener {
 
     private Drawer drawer;
 
@@ -28,6 +31,7 @@ public abstract class MaterialDrawerActivity extends AppCompatActivity implement
                         .withActivity(this)
                         .withHeaderBackground(R.drawable.stratechery_banner_large)
                         .withHeaderBackgroundScaleType(ImageView.ScaleType.FIT_CENTER)
+                        .withOnAccountHeaderProfileImageListener(this)
                         .build();
 
         drawer = new DrawerBuilder()
@@ -51,7 +55,17 @@ public abstract class MaterialDrawerActivity extends AppCompatActivity implement
     }
 
     @Override
-    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+    public final boolean onProfileImageClick(View view, IProfile profile, boolean current) {
+        return false;
+    }
+
+    @Override
+    public final boolean onProfileImageLongClick(View view, IProfile profile, boolean current) {
+        return false;
+    }
+
+    @Override
+    public final boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         switch (position) {
             case 0:
                 break;
@@ -64,7 +78,12 @@ public abstract class MaterialDrawerActivity extends AppCompatActivity implement
             default:
                 break;
         }
+        drawer.deselect();
         return false;
+    }
+
+    protected final Drawer getDrawer() {
+        return drawer;
     }
 
     protected abstract boolean shouldMoveTaskToBackOnBackPressed();

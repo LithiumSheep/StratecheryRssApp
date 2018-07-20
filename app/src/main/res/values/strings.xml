@@ -3,4 +3,6 @@
 
     <string name="scheme">https</string>
     <string name="host">stratechery.com</string>
+
+    <string name="url_github_repo">https://github.com/lolsheeplol/StratecheryRssApp</string>
 </resources>

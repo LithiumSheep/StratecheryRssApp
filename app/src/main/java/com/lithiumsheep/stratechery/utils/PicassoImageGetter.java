@@ -20,8 +20,8 @@ import com.squareup.picasso.Target;
  */
 public class PicassoImageGetter implements Html.ImageGetter {
 
-    TextView textView;
-    Context context;
+    private TextView textView;
+    private Context context;
 
     public PicassoImageGetter(TextView target) {
         this.context = target.getContext();

@@ -1,5 +1,7 @@
 package com.lithiumsheep.stratechery.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -74,6 +76,11 @@ public abstract class MaterialDrawerActivity extends AppCompatActivity implement
             case 2:
                 break;
             case 3:
+                break;
+            case 9: // open source
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(getString(R.string.url_github_repo)));
+                startActivity(browserIntent);
                 break;
             default:
                 break;

@@ -1,6 +1,7 @@
 package com.lithiumsheep.stratechery.api;
 
 import android.support.annotation.Keep;
+import android.support.annotation.NonNull;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -20,9 +21,8 @@ public abstract class NetworkCallback<T> implements Callback<T> {
     protected abstract void onError(Error error);
 
     @Override
-    public void onResponse(Call<T> call, Response<T> response) {
+    public void onResponse(@NonNull Call<T> call, @NonNull Response<T> response) {
         if (!response.isSuccessful()) {
-            //this.handleError(new Error(new Exception("Status code outside the 200-300 range"), response));
             this.onError(convertErrorBody(response.errorBody()));
         } else {
             this.onSuccess(response.body());
@@ -30,8 +30,8 @@ public abstract class NetworkCallback<T> implements Callback<T> {
     }
 
     @Override
-    public void onFailure(Call<T> call, Throwable t) {
-        if (t instanceof UnknownHostException) {    // since we control the Service, this exception usually means no network
+    public void onFailure(@NonNull Call<T> call, @NonNull Throwable t) {
+        if (t instanceof UnknownHostException) {    // this exception usually means no network
             onError(new Error(new Throwable("No network available, please check your WiFi or Data connection.")));
         } else {
             onError(new Error(t));
@@ -56,13 +56,9 @@ public abstract class NetworkCallback<T> implements Callback<T> {
         }
     }
 
-    /**
-     * Sandboxx api standard error body is usually Response: {"message": "..."}
-     */
     public static class Error {
         transient Throwable throwable;
 
-        // possible Strings from both Sandboxx error body and GAE error body
         private String message;
 
         Error(Throwable throwable) {

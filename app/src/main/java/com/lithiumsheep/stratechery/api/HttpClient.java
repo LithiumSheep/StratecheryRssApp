@@ -22,9 +22,7 @@ public class HttpClient {
     static synchronized OkHttpClient getClient() {
         if (client == null) {
             client = new OkHttpClient.Builder()
-                    .connectTimeout(10, TimeUnit.SECONDS)
-                    .writeTimeout(10, TimeUnit.SECONDS)
-                    .readTimeout(30, TimeUnit.SECONDS)
+                    .callTimeout(10, TimeUnit.SECONDS)
                     .addInterceptor(new AlgoliaInterceptor())
                     .addInterceptor(JakeWharton())
                     .build();

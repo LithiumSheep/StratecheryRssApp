@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import timber.log.Timber;
 
-public class SearchResultAdapter extends BaseRecyclerAdapter<SearchHit> {
+public final class SearchResultAdapter extends BaseRecyclerAdapter<SearchHit> {
 
     @NonNull
     @Override

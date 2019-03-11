@@ -1,6 +1,6 @@
 package com.lithiumsheep.stratechery.utils;
 
-public class Utils {
+public final class Utils {
 
     public static boolean isEmpty(String... args) {
         for (String s : args) {

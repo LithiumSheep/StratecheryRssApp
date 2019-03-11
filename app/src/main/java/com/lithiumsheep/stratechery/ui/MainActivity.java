@@ -22,7 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends MaterialDrawerActivity {
+public final class MainActivity extends MaterialDrawerActivity {
 
     @BindView(R.id.coordinator)
     CoordinatorLayout coordinatorLayout;

@@ -13,9 +13,9 @@ import java.util.List;
 
 import timber.log.Timber;
 
-public class ArticleViewModel extends ViewModel {
+public final class ArticleViewModel extends ViewModel {
 
-    private static String URL = "http://stratechery.com/feed/?paged=%d";
+    private static String URL = "https://stratechery.com/feed/?paged=%d";
     private static int INITIAL_PAGE = 1;
 
     MutableLiveData<List<Story>> articles;
@@ -56,16 +56,16 @@ public class ArticleViewModel extends ViewModel {
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
             public void onTaskCompleted(ArrayList<Article> list) {
-                loading.setValue(false);
+                loading.postValue(false);
                 if (list != null) {
-                    articles.setValue(Story.ofAll(list));
+                    articles.postValue(Story.ofAll(list));
                 }
             }
 
             @Override
             public void onError(Exception e) {
-                loading.setValue(false);
-                Timber.e("Error getting RSS feed in firstPage()");
+                loading.postValue(false);
+                Timber.e(e);
             }
         });
         parser.execute(getUrlForPage(INITIAL_PAGE));
@@ -79,17 +79,16 @@ public class ArticleViewModel extends ViewModel {
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
             public void onTaskCompleted(ArrayList<Article> list) {
-                paging.setValue(false);
+                paging.postValue(false);
                 if (list != null) {
-                    articles.setValue(Story.ofAll(list));
+                    articles.postValue(Story.ofAll(list));
                 }
             }
 
             @Override
             public void onError(Exception e) {
-                paging.setValue(false);
+                paging.postValue(false);
                 Timber.e(e);
-                Timber.e("Error getting RSS feed in firstPage()");
             }
         });
         parser.execute(getUrlForPage(currentPage));

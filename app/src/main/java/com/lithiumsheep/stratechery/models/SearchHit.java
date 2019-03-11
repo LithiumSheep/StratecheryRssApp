@@ -2,7 +2,7 @@ package com.lithiumsheep.stratechery.models;
 
 import com.squareup.moshi.Json;
 
-public class SearchHit {
+public final class SearchHit {
 
     @Json(name="post_id")
     String id;

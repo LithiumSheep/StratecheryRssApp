@@ -14,8 +14,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!--Extended AppTheme with Transparent Status Bar-->
-    <style name="AppTheme.TransparentStatus" parent="AppTheme">
+    <!--Extended AppTheme.NoActionBar with Transparent Status Bar-->
+    <style name="AppTheme.TransparentStatus" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorPrimary</item>
+
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>

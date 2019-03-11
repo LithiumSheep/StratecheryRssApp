@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,16 +35,14 @@ public final class ArticleActivity extends AppCompatActivity {
         return intent;
     }
 
-    @BindView(R.id.backdrop)
-    ImageView backdrop;
-    @BindView(R.id.author)
-    TextView author;
-    @BindView(R.id.title)
-    TextView title;
-    @BindView(R.id.content)
-    TextView content;
+    @BindView(R.id.backdrop) ImageView backdrop;
+    @BindView(R.id.scroll_view) NestedScrollView scrollView;
+    @BindView(R.id.author) TextView author;
+    @BindView(R.id.title) TextView title;
+    @BindView(R.id.content) TextView content;
 
-    Story story;
+    private Story story;
+    private boolean flaggedForLowProfile;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +80,31 @@ public final class ArticleActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Couldn't load null article", Toast.LENGTH_LONG).show();
         }
+
+        scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView nestedScrollView, int scrollX, int scrollY, int oldX, int oldY) {
+                if (scrollY > oldY) {   // scrolling DOWN
+                    if (!flaggedForLowProfile) {
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+                        flaggedForLowProfile = true;
+                    }
+                }
+                if (scrollY < oldY) {   // scrolling UP
+                    if (flaggedForLowProfile) {
+                        getWindow().getDecorView().setSystemUiVisibility(0);
+                        flaggedForLowProfile = false;
+                    }
+                }
+
+                if (scrollY == 0) { // scrolled to TOP
+                    if (flaggedForLowProfile) {
+                        getWindow().getDecorView().setSystemUiVisibility(0);
+                        flaggedForLowProfile = false;
+                    }
+                }
+            }
+        });
     }
 
     @Override

@@ -53,7 +53,6 @@ public class ArticleViewModel extends ViewModel {
         loading.setValue(true);
 
         Parser parser = new Parser();
-        parser.execute(getUrlForPage(INITIAL_PAGE));
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
             public void onTaskCompleted(ArrayList<Article> list) {
@@ -64,11 +63,12 @@ public class ArticleViewModel extends ViewModel {
             }
 
             @Override
-            public void onError() {
+            public void onError(Exception e) {
                 loading.setValue(false);
                 Timber.e("Error getting RSS feed in firstPage()");
             }
         });
+        parser.execute(getUrlForPage(INITIAL_PAGE));
     }
 
     public void nextPage() {
@@ -76,7 +76,6 @@ public class ArticleViewModel extends ViewModel {
 
         paging.setValue(true);
         Parser parser = new Parser();
-        parser.execute(getUrlForPage(currentPage));
         parser.onFinish(new Parser.OnTaskCompleted() {
             @Override
             public void onTaskCompleted(ArrayList<Article> list) {
@@ -87,10 +86,12 @@ public class ArticleViewModel extends ViewModel {
             }
 
             @Override
-            public void onError() {
+            public void onError(Exception e) {
                 paging.setValue(false);
+                Timber.e(e);
                 Timber.e("Error getting RSS feed in firstPage()");
             }
         });
+        parser.execute(getUrlForPage(currentPage));
     }
 }

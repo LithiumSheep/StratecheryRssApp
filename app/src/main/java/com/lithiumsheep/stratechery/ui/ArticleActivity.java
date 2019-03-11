@@ -10,6 +10,7 @@ import android.text.Html;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lithiumsheep.stratechery.R;
 import com.lithiumsheep.stratechery.models.Story;
@@ -60,9 +61,11 @@ public final class ArticleActivity extends AppCompatActivity {
         }
 
         if (this.story != null) {
-            Picasso.get()
-                    .load(story.getImage())
-                    .into(backdrop);
+            if (story.getImage() != null && !story.getImage().isEmpty()) {
+                Picasso.get()
+                        .load(story.getImage())
+                        .into(backdrop);
+            }
 
             author.setText(story.getAuthor());
             title.setText(story.getTitle());
@@ -74,15 +77,16 @@ public final class ArticleActivity extends AppCompatActivity {
                 content.setText(Html.fromHtml(story.getContent(),
                         new PicassoImageGetter(content), null));
             }
+        } else {
+            Toast.makeText(this, "Couldn't load null article", Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            // or
-            //finish();
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

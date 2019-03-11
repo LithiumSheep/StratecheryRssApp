@@ -88,18 +88,12 @@ public class PostSearchActivity extends AppCompatActivity {
                             }
                         })
                         .debounce(350, TimeUnit.MILLISECONDS)
-                        .map(new Function<CharSequence, String>() {
-                            @Override
-                            public String apply(CharSequence charSequence) throws Exception {
-                                return charSequence.toString();
-                            }
-                        })
                         .subscribeOn(AndroidSchedulers.mainThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Consumer<String>() {
+                        .subscribe(new Consumer<CharSequence>() {
                             @Override
-                            public void accept(String s) throws Exception {
-                                viewModel.search(s);
+                            public void accept(CharSequence cs) throws Exception {
+                                viewModel.search(cs.toString());
                             }
                         });
 

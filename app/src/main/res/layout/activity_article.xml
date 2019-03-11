@@ -51,18 +51,20 @@
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="16dp"
+                android:fontFamily="sans-serif-smallcaps"
                 android:paddingStart="16dp"
                 android:paddingTop="16dp"
+                android:paddingEnd="16dp"
                 tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/title"
-                style="@style/TextAppearance.AppCompat.Title"
+                style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="16dp"
+                android:fontFamily="sans-serif-black"
                 android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
@@ -70,6 +72,7 @@
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
                 android:padding="16dp"
                 tools:text="@tools:sample/lorem/random" />
 

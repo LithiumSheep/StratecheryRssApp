@@ -7,7 +7,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -63,5 +63,5 @@ dependencies {
     implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
     implementation 'com.mikepenz:community-material-typeface:2.0.46.1@aar'
 
-    implementation 'com.prof.rssparser:rssparser:1.4.1'
+    implementation 'com.prof.rssparser:rssparser:1.4.4'
 }

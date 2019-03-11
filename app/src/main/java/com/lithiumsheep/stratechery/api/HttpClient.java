@@ -1,7 +1,6 @@
 package com.lithiumsheep.stratechery.api;
 
 import com.lithiumsheep.stratechery.BuildConfig;
-import com.squareup.moshi.Moshi;
 
 import java.util.concurrent.TimeUnit;
 

@@ -27,17 +27,16 @@ public class ArticleAdapter extends BaseRecyclerAdapter<Story> {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_article, parent, false);
-        return new storyVH(view);
+        return new StoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        storyVH item = (storyVH) holder;
-
+        StoryViewHolder item = (StoryViewHolder) holder;
         item.bind(getItem(position));
     }
 
-    static class storyVH extends RecyclerView.ViewHolder {
+    static class StoryViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.title)
         TextView title;
@@ -50,10 +49,10 @@ public class ArticleAdapter extends BaseRecyclerAdapter<Story> {
         @BindView(R.id.image)
         ImageView image;
 
-        Story story;
-        Context context;
+        private Story story;
+        private Context context;
 
-        storyVH(View itemView) {
+        StoryViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.context = itemView.getContext();
@@ -69,13 +68,18 @@ public class ArticleAdapter extends BaseRecyclerAdapter<Story> {
             //publishDate.setText(format.format(story.getPubDate()));
             description.setText(story.getDescription());
 
-            Picasso.get()
-                    .load(story.getImage())
-                    .into(image);
+            if (story.getImage()!= null && !story.getImage().isEmpty()) {
+                image.setVisibility(View.VISIBLE);
+                Picasso.get()
+                        .load(story.getImage())
+                        .into(image);
+            } else {
+                image.setVisibility(View.GONE);
+            }
         }
 
         @OnClick(R.id.card_view)
-        void onstoryCardClicked() {
+        void onStoryCardClicked() {
             context.startActivity(ArticleActivity.newIntent(context, story));
         }
     }

@@ -21,7 +21,7 @@ import org.parceler.Parcels;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ArticleActivity extends AppCompatActivity {
+public final class ArticleActivity extends AppCompatActivity {
 
     private static final String ARTICLE = "extra_article";
 

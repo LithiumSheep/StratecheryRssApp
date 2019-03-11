@@ -11,7 +11,7 @@ import com.lithiumsheep.stratechery.models.SearchResult;
 
 import timber.log.Timber;
 
-public class PostSearchViewModel extends ViewModel {
+public final class PostSearchViewModel extends ViewModel {
 
     MutableLiveData<SearchResult> searchResults;
     MutableLiveData<Boolean> loading;

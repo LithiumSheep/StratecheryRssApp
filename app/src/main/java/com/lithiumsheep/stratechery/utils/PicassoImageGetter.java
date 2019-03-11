@@ -18,7 +18,7 @@ import com.squareup.picasso.Target;
  * PicassoImageGetter places placeholder image drawables in Html <img> tags while loading images
  * from network using Picasso.
  */
-public class PicassoImageGetter implements Html.ImageGetter {
+public final class PicassoImageGetter implements Html.ImageGetter {
 
     private TextView textView;
     private Context context;
@@ -40,7 +40,7 @@ public class PicassoImageGetter implements Html.ImageGetter {
 
     private class BitmapDrawablePlaceholder extends BitmapDrawable implements Target {
 
-        protected Drawable drawable;
+        Drawable drawable;
 
         @Override
         public void draw(Canvas canvas) {
@@ -49,7 +49,7 @@ public class PicassoImageGetter implements Html.ImageGetter {
             }
         }
 
-        public void setDrawable(Drawable drawable) {
+        void setDrawable(Drawable drawable) {
             this.drawable = drawable;
             int width = drawable.getIntrinsicWidth();
             int height = drawable.getIntrinsicHeight();

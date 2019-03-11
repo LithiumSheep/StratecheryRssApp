@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ArticleAdapter extends BaseRecyclerAdapter<Story> {
+public final class ArticleAdapter extends BaseRecyclerAdapter<Story> {
 
     @NonNull
     @Override

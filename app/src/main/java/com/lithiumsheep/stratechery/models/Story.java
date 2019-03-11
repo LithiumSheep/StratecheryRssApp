@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Parcel
-public class Story {
+public final class Story {
 
     String title;
     String author;

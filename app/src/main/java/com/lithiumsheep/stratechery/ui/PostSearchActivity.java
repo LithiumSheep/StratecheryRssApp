@@ -24,7 +24,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 
-public class PostSearchActivity extends AppCompatActivity {
+public final class PostSearchActivity extends AppCompatActivity {
 
     @BindView(R.id.search_view)
     SearchView searchView;

@@ -13,7 +13,7 @@ import java.util.List;
 
 import timber.log.Timber;
 
-public class ArticleViewModel extends ViewModel {
+public final class ArticleViewModel extends ViewModel {
 
     private static String URL = "https://stratechery.com/feed/?paged=%d";
     private static int INITIAL_PAGE = 1;

@@ -6,7 +6,7 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import timber.log.Timber;
 
-public class StratecheryApp extends Application {
+public final class StratecheryApp extends Application {
 
     @Override
     public void onCreate() {

@@ -1,14 +1,14 @@
 package com.lithiumsheep.stratechery.models;
 
-import com.prof.rssparser.Article;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import org.parceler.Parcel;
+import com.prof.rssparser.Article;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Parcel
-public final class Story {
+public final class Story implements Parcelable {
 
     String title;
     String author;
@@ -18,6 +18,21 @@ public final class Story {
     String content;
     String image;
     List<String> categories;
+
+    Story() {
+
+    }
+
+    protected Story(Parcel in) {
+        title = in.readString();
+        author = in.readString();
+        link = in.readString();
+        pubDate = in.readString();
+        description = in.readString();
+        content = in.readString();
+        image = in.readString();
+        categories = in.createStringArrayList();
+    }
 
     public static Story of(Article other) {
         Story article = new Story();
@@ -70,5 +85,34 @@ public final class Story {
 
     public List<String> getCategories() {
         return categories;
+    }
+
+    public static final Creator<Story> CREATOR = new Creator<Story>() {
+        @Override
+        public Story createFromParcel(Parcel in) {
+            return new Story(in);
+        }
+
+        @Override
+        public Story[] newArray(int size) {
+            return new Story[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(author);
+        dest.writeString(link);
+        dest.writeString(pubDate);
+        dest.writeString(description);
+        dest.writeString(content);
+        dest.writeString(image);
+        dest.writeStringList(categories);
     }
 }

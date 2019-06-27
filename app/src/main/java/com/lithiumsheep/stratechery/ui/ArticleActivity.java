@@ -30,7 +30,7 @@ public final class ArticleActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context, Story story) {
         Intent intent = new Intent(context, ArticleActivity.class);
-        intent.putExtra(ARTICLE, Parcels.wrap(story));
+        intent.putExtra(ARTICLE, story);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);   // one instance of article activity please
         return intent;
     }
@@ -51,7 +51,7 @@ public final class ArticleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         if (getIntent().hasExtra(ARTICLE)) {
-            this.story = Parcels.unwrap(getIntent().getParcelableExtra(ARTICLE));
+            this.story = getIntent().getParcelableExtra(ARTICLE);
         }
 
         if (getSupportActionBar() != null) {

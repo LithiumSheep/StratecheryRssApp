@@ -19,8 +19,6 @@ import com.lithiumsheep.stratechery.models.Story;
 import com.lithiumsheep.stratechery.utils.PicassoImageGetter;
 import com.squareup.picasso.Picasso;
 
-import org.parceler.Parcels;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

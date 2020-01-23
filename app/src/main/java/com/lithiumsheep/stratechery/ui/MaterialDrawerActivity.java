@@ -2,8 +2,10 @@ package com.lithiumsheep.stratechery.ui;
 
 import android.content.Intent;
 import android.net.Uri;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
 import android.widget.ImageView;
 
@@ -42,13 +44,13 @@ public abstract class MaterialDrawerActivity extends AppCompatActivity implement
                 .withAccountHeader(header)
                 .addDrawerItems(
                         new SectionDrawerItem().withName("Explore").withDivider(false),
-                        new PrimaryDrawerItem().withName("Concepts").withIcon(CommunityMaterial.Icon.cmd_lightbulb_on),
+                        new PrimaryDrawerItem().withName("Concepts").withIcon(CommunityMaterial.Icon2.cmd_lightbulb_on),
                         new PrimaryDrawerItem().withName("Companies").withIcon(GoogleMaterial.Icon.gmd_business),
                         new PrimaryDrawerItem().withName("Topics").withIcon(CommunityMaterial.Icon.cmd_dictionary), // library, books, clipboard
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName("About").withIcon(GoogleMaterial.Icon.gmd_info),
                         new SecondaryDrawerItem().withName("Settings").withIcon(GoogleMaterial.Icon.gmd_settings),
-                        new SecondaryDrawerItem().withName("Support Development").withIcon(CommunityMaterial.Icon.cmd_heart),
+                        new SecondaryDrawerItem().withName("Support Development").withIcon(CommunityMaterial.Icon2.cmd_heart),
                         new SecondaryDrawerItem().withName("Open Source").withIcon(CommunityMaterial.Icon.cmd_github_circle)
                 )
                 .withOnDrawerItemClickListener(this)

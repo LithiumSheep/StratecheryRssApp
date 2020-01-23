@@ -1,7 +1,7 @@
 package com.lithiumsheep.stratechery.api;
 
-import android.support.annotation.Keep;
-import android.support.annotation.NonNull;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;

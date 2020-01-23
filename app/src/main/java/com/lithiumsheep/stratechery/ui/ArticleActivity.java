@@ -33,11 +33,11 @@ public final class ArticleActivity extends AppCompatActivity {
         return intent;
     }
 
-    @BindView(R.id.backdrop) ImageView backdrop;
-    @BindView(R.id.scroll_view) NestedScrollView scrollView;
-    @BindView(R.id.author) TextView author;
-    @BindView(R.id.title) TextView title;
-    @BindView(R.id.content) TextView content;
+    @BindView(R.id.iv_article_backdrop) ImageView backdrop;
+    @BindView(R.id.sv_article) NestedScrollView scrollView;
+    @BindView(R.id.tv_author) TextView author;
+    @BindView(R.id.tv_title) TextView title;
+    @BindView(R.id.tv_content) TextView content;
 
     private Story story;
     private boolean flaggedForLowProfile;

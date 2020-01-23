@@ -25,7 +25,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/backdrop"
+                android:id="@+id/iv_article_backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
@@ -36,7 +36,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/sv_article"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
@@ -48,7 +48,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/author"
+                android:id="@+id/tv_author"
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 tools:text="@tools:sample/full_names" />
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/tv_title"
                 style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 tools:text="@tools:sample/lorem" />
 
             <TextView
-                android:id="@+id/content"
+                android:id="@+id/tv_content"
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

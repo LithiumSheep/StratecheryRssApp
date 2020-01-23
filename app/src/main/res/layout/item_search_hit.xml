@@ -11,8 +11,7 @@
     app:cardElevation="0dp"
     app:cardUseCompatPadding="false">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -22,12 +21,12 @@
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:background="#e0e0e0"
-            android:paddingEnd="8dp"
             android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:singleLine="true"
             tools:text="Post" />
 
@@ -36,8 +35,8 @@
             style="@style/TextAppearance.AppCompat.SearchResult.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:singleLine="true"
             tools:text="@tools:sample/lorem/random" />
@@ -47,9 +46,9 @@
             style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:ellipsize="end"
             android:singleLine="true"
             tools:text="@tools:sample/lorem/random" />

@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/iv_article_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/author"
+                android:id="@+id/tv_article_author"
                 style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,21 +43,21 @@
                 tools:text="@tools:sample/full_names" />
 
             <TextView
-                android:id="@+id/publish_date"
+                android:id="@+id/tv_article_publish_date"
                 style="@style/TextAppearance.AppCompat.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
                 android:paddingTop="16dp"
                 android:paddingEnd="16dp"
-                app:layout_constraintBaseline_toBaselineOf="@id/author"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_article_author"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="@tools:sample/date/ddmmyy" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/tv_article_title"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             tools:text="@tools:sample/lorem" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/tv_article_description"
             style="@style/TextAppearance.AppCompat.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

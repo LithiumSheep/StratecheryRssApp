@@ -1,8 +1,10 @@
 package com.lithiumsheep.stratechery.ui;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,15 +40,15 @@ public final class ArticleAdapter extends BaseRecyclerAdapter<Story> {
 
     static class StoryViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.title)
+        @BindView(R.id.tv_article_title)
         TextView title;
-        @BindView(R.id.author)
+        @BindView(R.id.tv_article_author)
         TextView author;
-        @BindView(R.id.publish_date)
+        @BindView(R.id.tv_article_publish_date)
         TextView publishDate;
-        @BindView(R.id.description)
+        @BindView(R.id.tv_article_description)
         TextView description;
-        @BindView(R.id.image)
+        @BindView(R.id.iv_article_image)
         ImageView image;
 
         private Story story;
@@ -68,7 +70,7 @@ public final class ArticleAdapter extends BaseRecyclerAdapter<Story> {
             //publishDate.setText(format.format(story.getPubDate()));
             description.setText(story.getDescription());
 
-            if (story.getImage()!= null && !story.getImage().isEmpty()) {
+            if (story.getImage() != null && !story.getImage().isEmpty()) {
                 image.setVisibility(View.VISIBLE);
                 Picasso.get()
                         .load(story.getImage())
